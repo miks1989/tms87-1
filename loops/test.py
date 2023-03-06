@@ -42,3 +42,10 @@
 # for digit in arr:
 #     print(digit)
 
+inString = input()
+outList = inString.split(' ')
+outList.reverse()
+outList.insert(0, '!')
+outList.insert(len(outList), '!')
+a = outList
+print(*outList)
