@@ -18,3 +18,18 @@ while i < len(arr):
     i += 1
 
 print(arr)
+
+
+arr = [7, 1, 2, 8, 3, 4, 4, 4, 5, 5, 2, 6]
+i = 0
+j = 0
+ordered_arr = []
+while len(arr) != 0:
+    while (arr[j] <= arr[i]):
+        i += 1
+        if i == len(arr):
+            ordered_arr.append(arr.pop(j))
+            i = 0
+            break
+    j = i
+print(ordered_arr)
