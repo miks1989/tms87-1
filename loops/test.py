@@ -42,10 +42,31 @@
 # for digit in arr:
 #     print(digit)
 
-inString = input()
-outList = inString.split(' ')
-outList.reverse()
-outList.insert(0, '!')
-outList.insert(len(outList), '!')
-a = outList
-print(*outList)
+# inString = input()
+# outList = inString.split(' ')
+# outList.reverse()
+# outList.insert(0, '!')
+# outList.insert(len(outList), '!')
+# a = outList
+# print(*outList)
+#
+# my_str = input("Введите строку: ")
+# list = my_str.split(" ")
+# answer = []
+# for i in list:
+#     answer += [i[::-1]]
+# print(" ".join(answer))
+#
+# a = [1, 2, 3, 4, 5]
+# i = 0
+# while i < len(a) / 2:
+#     t = a[i]
+#     a[i] = a[-i - 1]
+#     a[-i - 1] = t
+#     i = i + 1
+# print(a)
+#
+#
+# r = range(5, 10)
+# for i in r:
+#     print(i)
