@@ -9,6 +9,7 @@ def main():
     new_result = my_func(our_result, 5)
     print(new_result)
 
+print(__name__)
 
 if __name__ == '__main__':
     main()
