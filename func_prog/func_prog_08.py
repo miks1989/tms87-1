@@ -25,5 +25,11 @@ def very_importent_func(arr):
     print(arr)
     return arr
 
-arr = [i for i in range(100)]
-very_importent_func(arr)
+
+def main():
+    arr = [i for i in range(100)]
+    very_importent_func(arr)
+
+
+if __name__ == '__main':
+    main()
