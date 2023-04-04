@@ -25,7 +25,12 @@ def create(name, fields: list, rows: list):
 def read(name):
     with open(name, 'r') as csvfile:
         csvreader = csv.reader(csvfile)
-        return [row for row in csvreader]
+        result = []
+        for row in csvreader:
+            result.append(row)
+    return result
+
+    # return [row for row in csvreader]
 
 
 def write(name, rows):
@@ -53,15 +58,17 @@ def delete(name, index=-1):
 
 def summa(name):
     rows = read(name)
-    summa = sum([float(row[1]) * float(row[2]) for row in rows[1:]])
+    summa = 0
+    for row in rows[1:]:
+        summa += float(row[1]) * float(row[2])
+    # summa = sum([float(row[1]) * float(row[2]) for row in rows[1:]])
     return summa
 
 
 def max_price(name):
     rows = read(name)
     max_price = max([float(row[1]) for row in rows[1:]])
-    index_max = [i for i, row in enumerate(rows[1:])
-                 if max_price == float(row[1])]
+    index_max = [i for i, row in enumerate(rows[1:]) if max_price == float(row[1])]
     return max_price, index_max
 
 
