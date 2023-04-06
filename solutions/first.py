@@ -110,7 +110,7 @@ print(function_coll_4())
 
 
 @my_decorator
-def function_coll_5(limit=10 ** 6):
+def function_coll_5(limit=10 ** 7):
     result = {1: 0}
     all_steps = 0
     for digit in range(2, limit):
