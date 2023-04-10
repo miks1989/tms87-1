@@ -4,10 +4,13 @@
 
 
 def print_from_dict(**kwargs):
+    result_dict = {}
     print(kwargs, type(kwargs))
     for key, value in kwargs.items():
         if len(key) % 2 == 0:
             print(key, value)
+            result_dict[key] = value
+    return result_dict
 
 
 def main():

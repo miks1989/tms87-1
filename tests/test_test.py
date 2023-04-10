@@ -11,4 +11,4 @@ def test_summ_1():
     assert result == 11
 def test_summ_2():
     result = summ(2, 8)
-    assert result == 7
+    assert result == 10
