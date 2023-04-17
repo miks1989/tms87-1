@@ -8,7 +8,17 @@
 
 
 class MyTime:
+    """
+    create time object
+    default h - 0,  m - 0, s - 0
+    str 'h m s'
+    int h, m, s
+    MyTime object
+    """
     def __init__(self, *args):
+        # self.hours = args[0]
+        # self.minutes = args[1]
+        # self.seconds = args[2]
         if not any(args):
             self.hours = 0
             self.minutes = 0
@@ -33,7 +43,7 @@ class MyTime:
 
     def __eq__(self, other):
         return (self.hours, self.minutes, self.seconds) \
-               == (other.hours, other.minutes, other.seconds)
+            == (other.hours, other.minutes, other.seconds)
 
     def __ne__(self, other):
         return not (self.hours, self.minutes, self.seconds) \
@@ -54,3 +64,23 @@ class MyTime:
         m, s = divmod(delta_seconds, 60)
         h, m = divmod(m, 60)
         return MyTime(h, m, s)
+
+
+def main():
+    print(MyTime.__doc__)
+    time_1 = MyTime('1 20 0')
+    time_2 = time_1
+    time_1 = MyTime(time_1)
+    print(time_1 == time_2)
+    print(time_1 != time_2)
+    time_3 = time_1 + time_2
+    print(time_3)
+    time_4 = time_3 - time_1
+    print(time_4)
+    time_5 = MyTime(2, 55, 0)
+    print(time_1 + time_5)
+
+
+
+if __name__ == "__main__":
+    main()
