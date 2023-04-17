@@ -107,4 +107,6 @@ parrot.jump(1)
 Parrot.go()
 cat.change_weight()
 parrot.change_weight()
+parrot.very_important = 2
+Pet.very_important = 10
 s = 1
