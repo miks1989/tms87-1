@@ -98,6 +98,22 @@ class Parrot(Pet):
             super().jump(x)
 
 
+class Horse(Pet):
+
+    def voice(self):
+        print(f'{self.name} rzhot')
+
+
+class Donkey(Pet):
+
+    def voice(self):
+        print(f'{self.name} ia-ia-ia')
+
+
+class Mule(Donkey, Horse):
+    pass
+
+
 dog = Dog('Bob', age=5, master='Boris', weight=10, height=15)
 cat = Cat('Tom', age=12, master="Pyatro", weight=10, height=15)
 parrot = Parrot('Kuzia', age=3, master='Valera', weight=10, height=15, species="wavy")
@@ -109,4 +125,7 @@ cat.change_weight()
 parrot.change_weight()
 parrot.very_important = 2
 Pet.very_important = 10
+s = 1
+mule = Mule('Bob', age=5, master='Boris', weight=10, height=15)
+mule.voice()
 s = 1
