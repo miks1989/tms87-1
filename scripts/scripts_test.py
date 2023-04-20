@@ -3,12 +3,14 @@ import sys
 import argparse
 
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument('-fn', '--first_name', type=str, required=True)
-# parser.add_argument('-ln', '--last_name', type=str, required=True)
-# parser.add_argument('-echo', type=int)
-# args = parser.parse_args()
-# print(args)
+print(sys.argv)
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-fn', '--first_name', required=True)
+parser.add_argument('-ln', '--last_name', required=True)
+parser.add_argument('echo', type=int)
+args = parser.parse_args()
+print(args)
 
 
 # args_arr = f"{args.first_name} {args.last_name} {args.age}\n"
@@ -59,41 +61,41 @@ import argparse
 # if end_name[-1] == 'py':
 #     new_file.write(text_for_py)
 # new_file.close()
-
-#6
-import csv
-import os
-import time
-from datetime import timedelta
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument('-fn', '--first_name')
-parser.add_argument('-ln', '--last_name')
-parser.add_argument('-hr', '--hours', default=0)
-parser.add_argument('-m', '--minutes', default=0)
-parser.add_argument('-s', '--seconds')
-args = parser.parse_args()
-delta_time = timedelta(hours=int(args.hours),
-                       minutes=int(args.minutes),
-                       seconds=int(args.seconds))
-time_start = time.ctime()
-
-if not os.path.exists('log_timer.csv'):
-    with open('log_timer.csv', 'w') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        fields = ['first name', 'last name', 'time start']
-        csvwriter.writerow(fields)
-
-with open('log_timer.csv', 'a') as csvfile:
-    csvwriter = csv.writer(csvfile)
-    arr = [args.first_name, args.last_name, time_start]
-    csvwriter.writerow(arr)
-
-second = timedelta(seconds=1)
-end_time = timedelta(seconds=0)
-while delta_time >= end_time:
-    print(delta_time)
-    delta_time -= second
-    time.sleep(1)
-print('time was ended')
+#
+# #6
+# import csv
+# import os
+# import time
+# from datetime import timedelta
+# import argparse
+#
+# parser = argparse.ArgumentParser()
+# parser.add_argument('-fn', '--first_name')
+# parser.add_argument('-ln', '--last_name')
+# parser.add_argument('-hr', '--hours', default=0)
+# parser.add_argument('-m', '--minutes', default=0)
+# parser.add_argument('-s', '--seconds')
+# args = parser.parse_args()
+# delta_time = timedelta(hours=int(args.hours),
+#                        minutes=int(args.minutes),
+#                        seconds=int(args.seconds))
+# time_start = time.ctime()
+#
+# if not os.path.exists('log_timer.csv'):
+#     with open('log_timer.csv', 'w') as csvfile:
+#         csvwriter = csv.writer(csvfile)
+#         fields = ['first name', 'last name', 'time start']
+#         csvwriter.writerow(fields)
+#
+# with open('log_timer.csv', 'a') as csvfile:
+#     csvwriter = csv.writer(csvfile)
+#     arr = [args.first_name, args.last_name, time_start]
+#     csvwriter.writerow(arr)
+#
+# second = timedelta(seconds=1)
+# end_time = timedelta(seconds=0)
+# while delta_time >= end_time:
+#     print(delta_time)
+#     delta_time -= second
+#     time.sleep(1)
+# print('time was ended')
