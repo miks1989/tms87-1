@@ -25,7 +25,7 @@ class MyTime:
             self.seconds = 0
         elif isinstance(args[0], str):
             args = args[0].split()
-            self.hours = int(args[0])
+            self.__hours = int(args[0])
             self.minutes = int(args[1])
             self.seconds = int(args[2])
         elif isinstance(args[0], int):
@@ -67,10 +67,14 @@ class MyTime:
 
 
 def main():
+    s = 1
     print(MyTime.__doc__)
     time_1 = MyTime('1 20 0')
+    print(time_1._MyTime__hours)
     time_2 = time_1
+    print(time_1 == time_2)
     time_1 = MyTime(time_1)
+    print(time_1, time_2)
     print(time_1 == time_2)
     print(time_1 != time_2)
     time_3 = time_1 + time_2

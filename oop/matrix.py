@@ -11,7 +11,7 @@ class Matrix:
             self.__n = n
             self.__m = m
             self.__data = [[randint(start_random, finish_random)
-                            for element in range(m)] for row in range(n)]
+                            for _ in range(m)] for _ in range(n)]
 
     def __str__(self):
         return f'{self.__data}'

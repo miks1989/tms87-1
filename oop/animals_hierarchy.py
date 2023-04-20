@@ -27,7 +27,7 @@ class Pet(Animal, ABC):
     @abstractmethod
     def pogladyt(self):
         raise NotImplementedError
-
+        # pass
 
 class WildAnimal(Animal, ABC):
     @abstractmethod
@@ -50,6 +50,7 @@ class Canine(ABC):
 class Cat(Pet, Feline):
     def pogladyt(self):
         print('gladim kota')
+        # super().pogladyt()
 
     def scratch(self):
         print('cat scratch')
@@ -80,7 +81,8 @@ class Wolf(WildAnimal, Canine):
 
 
 def main():
-    pass
+    cat = Cat('Tom', 12)
+    cat.pogladyt()
 
 if __name__ == '__main__':
     main()
