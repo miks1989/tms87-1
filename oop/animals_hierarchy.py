@@ -77,3 +77,10 @@ class Wolf(WildAnimal, Canine):
 
     def howl(self):
         print('wolf howl to moon')
+
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
