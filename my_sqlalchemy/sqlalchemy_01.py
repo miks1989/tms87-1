@@ -22,3 +22,4 @@ with engine.connect() as connection:
 
     # # Выполнение SQL-запроса с помощью метода `execute` на соединении
     connection.execute(query)
+print()
