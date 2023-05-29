@@ -22,8 +22,8 @@ DB_PWD = 'postgres'
 DB_HOST = 'localhost'
 DB_NAME = 'school'
 
-e = create_engine(f'postgresql://{DB_USER}:{DB_PWD}@{DB_HOST}/{DB_NAME}', echo=True)
-e = create_engine(f'postgresql://postgres:postgres@localhost/school', echo=False)
+# e = create_engine(f'postgresql://{DB_USER}:{DB_PWD}@{DB_HOST}/{DB_NAME}', echo=True)
+e = create_engine(f'postgresql://postgres:postgres@localhost/school', echo=True)
 
 if not database_exists((e.url)):
     create_database(e.url)
