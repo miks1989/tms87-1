@@ -1,9 +1,9 @@
 from models import session, Group, Student, Diary
 
-data = session.query(Group).join(Student, Group.id == Student.group_id).filter(Student.firstname == 'max').all()
-print(data)
-for i in data:
-    print(i.name)
+# data = session.query(Group, Student).join(Group, Group.id == Student.group_id).all()
+# print(data)
+# for gr, st in data:
+#     print(st.firstname, gr.name)
 
 
 

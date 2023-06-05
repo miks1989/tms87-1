@@ -5,7 +5,8 @@ from cars.logic import create_brand, create_car, \
 
 def create_brand_ui():
     name = input('enter brand name -> ')
-    create_brand(name)
+    brand_name = create_brand(name)
+    print(f'brand with name {brand_name} was created')
 
 
 def create_car_ui():
@@ -13,7 +14,9 @@ def create_car_ui():
     data['model'] = input('enter model -> ')
     data['release_year'] = int(input('enter release year -> '))
     data['id'] = input('enter brand"s id -> ')
-    create_car(data)
+    car_model_name = create_car(data)
+    print(f'{car_model_name} was created')
+
 
 
 def read_brand_ui():
@@ -25,7 +28,7 @@ def read_brand_ui():
 def read_car_ui():
     cars = read_car()
     for car, brand in cars:
-        print(f'id - {car.id} : {car.model} {car.release_year} {brand.name}')
+        print(f'id - {car.id} - {car.model}, {car.release_year}, {brand.name}')
 
 
 def update_brand_ui():
@@ -63,7 +66,6 @@ def main():
                "7": delete_car_ui,
                "8": delete_brand_ui}
     while True:
-        input('enter something to continue ')
         choice = input("""
                 enter
                 "1": create_brand,

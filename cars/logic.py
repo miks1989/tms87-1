@@ -1,10 +1,11 @@
 from cars.models import Brand, Car, session
 
 
-def create_brand(name):
+def create_brand(name: str) -> None:
     brand = Brand(name)
     session.add(brand)
     session.commit()
+    return brand.name
 
 
 def create_car(data: dict):
@@ -13,6 +14,7 @@ def create_car(data: dict):
     car = Car(data['model'], data['release_year'], brand)
     session.add(car)
     session.commit()
+    return car.model
 
 
 def read_brand():
@@ -25,7 +27,7 @@ def read_car():
 
 
 def update_brand(id, new_name):
-    brand = session.query(Brand).filter_by(id=id).first()
+    brand = session.query(Brand).filter_by(id=id)[0]
     brand.name = new_name
     session.commit()
 
