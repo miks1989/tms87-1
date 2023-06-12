@@ -5,12 +5,13 @@ from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__, template_folder='templates')
 
-@app.route('all')
+@app.route('/all/')
 def all_users():
     with open('flask_users_05.csv', 'r') as file:
         csvreader = csv.reader(file)
-        dict_users = {}
-        for user in csvreader[1:]:
+        rows = [row for row in csvreader]
+    return render_template('all.html', users=rows[1:])
+
 
 
 
