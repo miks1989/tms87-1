@@ -7,6 +7,11 @@ app = Flask(__name__, template_folder='templates')
 def success(name, lastname):
     return f'hello {name} {lastname}'
 
+@app.route('/kotiki/',  methods=['POST',])
+def kotiki():
+    if request.method == 'POST':
+        return f'hello from kotiki {request.form["name"]} {request.form["lastname"]}'
+
 
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
@@ -20,6 +25,7 @@ def login():
     #     return redirect(url_for('success', name=user))
     else:
         return render_template('login.html')
+
 
 
 if __name__ == '__main__':

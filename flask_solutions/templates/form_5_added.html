@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<H1>user was added to file :</H1>
+<H1>{{ data_for_template.name }}</H1>
+<H1>{{ data_for_template.lastname }}</H1>
+<H1>{{ data_for_template.age }}</H1>
+
+
+<form action="{{ url_for('custom_login')}}" method="get">
+    <p>if you want to add new user press the button</p>
+    <input type="submit" value="submit">
+
+</form>
+
+<a></a>
+
+</body>
+</html>

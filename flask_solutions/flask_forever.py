@@ -7,8 +7,9 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route('/two_pow/<int:number>')
+@app.route('/two_pow/<number>')
 def two_pow(number):
+    number = int(number)
     assert isinstance(number, int)
     return f'2 ** {number} = {2 ** number}'
 
