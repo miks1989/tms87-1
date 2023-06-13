@@ -11,6 +11,7 @@ def all_users():
     with open('flask_users_05.csv', 'r') as file:
         csvreader = csv.reader(file)
         rows = [row for row in csvreader]
+    #     хрень
     return render_template('all.html', users=rows[1:])
 
 
