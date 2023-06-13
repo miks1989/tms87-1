@@ -21,10 +21,6 @@ class Group(db.Model):
     fullname = db.Column(db.String(100))
 
 
-# db.init_app(app)
-# db.create_all()
-
-
 @app.route('/')
 def read_group():
     data = Group.query.all()
@@ -47,7 +43,7 @@ def update():
     if request.method == 'GET':
         return render_template('update.html', id=request.args.get('id'))
     else:
-        group = db.session.query(Group).\
+        group = db.session.query(Group). \
             filter_by(id=request.args.get('id')).first()
         group.fullname = request.form['fullname']
         db.session.commit()
@@ -62,5 +58,6 @@ def delete():
 
 
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run()
