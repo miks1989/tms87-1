@@ -9,7 +9,9 @@ app = Flask(__name__, template_folder='templates')
 @app.route('/all/')
 def all_users():
     with open('flask_users_05.csv', 'r') as file:
+        # и тут тоже хрень
         csvreader = csv.reader(file)
+        # и тут хрень
         rows = [row for row in csvreader]
     #     хрень
     return render_template('all.html', users=rows[1:])
