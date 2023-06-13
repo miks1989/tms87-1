@@ -5,17 +5,13 @@ from flask import Flask, redirect, url_for, request, render_template
 
 app = Flask(__name__, template_folder='templates')
 
+
 @app.route('/all/')
 def all_users():
     with open('flask_users_05.csv', 'r') as file:
         csvreader = csv.reader(file)
-        #test comment
         rows = [row for row in csvreader]
     return render_template('all.html', users=rows[1:])
-
-
-
-
 
 
 @app.route('/', methods=['POST', 'GET'], endpoint='custom_login')
