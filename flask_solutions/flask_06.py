@@ -10,6 +10,7 @@ app = Flask(__name__, template_folder='templates')
 def all_users():
     with open('flask_users_05.csv', 'r') as file:
         # и тут тоже хрень
+        # some changes
         csvreader = csv.reader(file)
         # и тут хрень
         rows = [row for row in csvreader]
