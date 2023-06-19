@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update group</title>
+</head>
+<body>
+<form action="{{ url_for('update_group', group_id=group_id)}}" method="post">
+    <p>inter new name for the group with id {{ group_id }}</p>
+    <br>
+    <p><input type="text" name="name"></p>
+
+    <input type="submit" value="жми">
+
+</form>
+
+</body>
+</html>

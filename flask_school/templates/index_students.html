@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{{ url_for('add_student', group_id=group_id)}}"> add student in db</a>
+<br>
+<br>
+<table>
+    <tr>
+        <td>id</td>
+        <td>student's name</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% for group in students%}
+    <tr>
+        <td>{{group.id}}</td>
+        <td>{{group.name}}</td>
+        <td><a href="{{ url_for('update', id=group.id) }}" >press to update</a></td>
+        <td><a href="{{ url_for('delete', id=group.id) }}" >press to delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>

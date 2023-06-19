@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{{ url_for('add_student', group_id=group_id)}}" method="post">
+    <p>enter student name</p>
+    <input type="text" name="fullname">
+    <input type="submit">
+
+</form>
+</body>
+</html>

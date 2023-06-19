@@ -9,6 +9,8 @@
 
 from flask import Flask, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 app = Flask(__name__, template_folder='templates')
 
@@ -21,11 +23,22 @@ class Group(db.Model):
     fullname = db.Column(db.String(100))
 
 
+class Student(db.Model):
+    id = db.Column('id', db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    group_id = db.Column(db.Integer, ForeignKey(Group.id), nullable=True)
+    group = relationship('Group', foreign_keys='Student.group_id', backref='students')
+
+
 @app.route('/')
 def read_group():
     data = Group.query.all()
     return render_template('index.html', groups=data)
 
+@app.route('/students/<group_id>')
+def read_students(group_id):
+    students = Student.query.filter_by(group_id=group_id)
+    return render_template('index_students.html', students=students, group_id=group_id)
 
 @app.route('/add', methods=['POST', 'GET'])
 def add_group():
@@ -37,6 +50,16 @@ def add_group():
         db.session.commit()
         return redirect(url_for('read_group'))
 
+
+@app.route('/add', methods=['POST', 'GET'])
+def add_student():
+    if request.method == 'GET':
+        return render_template('form_student.html', group_id=request.args.get('group_id'))
+    else:
+        student = Student(name=request.form['fullname'], group_id=request.args.get('group_id'))
+        db.session.add(student)
+        db.session.commit()
+        return redirect(url_for('read_students'))
 
 @app.route('/update_group', methods=['POST', 'GET'])
 def update():
