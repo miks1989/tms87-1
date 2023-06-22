@@ -17,7 +17,7 @@
     </tr>
     {% for group in groups%}
     <tr>
-        <td>{{group.id}}</td>
+        <td><a href="{{ url_for('read_students', group_id=group.id)}}">{{group.id}}</a></td>
         <td>{{group.fullname}}</td>
         <td><a href="{{ url_for('update', id=group.id) }}" >press to update</a></td>
         <td><a href="{{ url_for('delete', id=group.id) }}" >press to delete</a></td>
