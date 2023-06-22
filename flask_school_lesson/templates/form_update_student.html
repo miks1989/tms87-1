@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update student</title>
+</head>
+<body>
+<form action="{{ url_for('update_student', student_id=student.id, group_id=student.group_id)}}" method="post">
+    <p>inter new firstname for the student {{ student.firstname }} {{ student.lastname }}</p>
+    <p><input type="text" name="firstname" value="{{student.firstname}}"></p>
+    <p>inter new lastname</p>
+    <p><input type="text" name="lastname" value="{{ student.lastname }}"></p>
+    <p>inter new group</p>
+    <p><input type="text" name="group_id" value="{{ student.group_id }}"></p>
+
+    <input type="submit" value="жми">
+
+</form>
+
+</body>
+</html>
